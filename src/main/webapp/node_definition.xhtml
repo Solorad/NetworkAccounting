@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <META content="text/html; charset=windows-1251" http-equiv="Content-Type"/>
+    <title>Описание узла</title>
+</h:head>
+<h:body>
+    <h1><h:outputText value="Описание узла с id = #{jsfModel.nodeId}"/></h1>
+    <br/>
+    <p:dataTable id="billTable" value="#{jsfBeanController.allLinksForNode}" var="link"
+                 style="margin-bottom:20px">
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Имя узла 1"/>
+            </f:facet>
+            <h:outputText value="#{link.leftNodeName}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Имя коннектора 1"/>
+            </f:facet>
+            <h:outputText value="#{link.leftConnectorName}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Номер точки в коннекторе 1"/>
+            </f:facet>
+            <h:outputText value="#{link.leftPointNum}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Связан"/>
+            </f:facet>
+            <h:outputText value="&lt;============&gt;"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Имя узла 2"/>
+            </f:facet>
+            <h:outputText value="#{link.rightNodeName}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Имя коннектора 2"/>
+            </f:facet>
+            <h:outputText value="#{link.rightConnectorName}"/>
+        </p:column>
+
+        <p:column>
+            <f:facet name="header">
+                <h:outputText value="Номер точки в коннекторе 2"/>
+            </f:facet>
+            <h:outputText value="#{link.rightPointNum}"/>
+        </p:column>
+
+    </p:dataTable>
+
+    <h:form>
+        <h:button value="Отмена" outcome="index"/>
+    </h:form>
+</h:body>
+</html>

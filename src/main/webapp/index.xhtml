@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1251"/>
+    <title>Описание узлов</title>
+</h:head>
+<h:body style="margin: 20px;">
+
+    <h:form id="form">
+        Записей на странице
+        <h:selectOneMenu value="#{jsfModel.rowsPerPage}">
+            <f:selectItem itemValue="10" itemLabel="10"/>
+            <f:selectItem itemValue="20" itemLabel="20"/>
+            <f:selectItem itemValue="50" itemLabel="50"/>
+            <f:ajax render="nodeTable"/>
+        </h:selectOneMenu>
+
+
+        <p:dataTable id="nodeTable" value="#{jsfBeanController.allNodes}" var="node"
+                     paginator="true" rows="#{jsfModel.rowsPerPage}" style="margin-bottom:20px">
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Имя"/>
+                </f:facet>
+                <h:outputText value="#{node.nodeName}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Регион"/>
+                </f:facet>
+                <h:outputText value="#{node.nodeRegion}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Улица"/>
+                </f:facet>
+                <h:outputText value="#{node.nodeStreet}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Дом"/>
+                </f:facet>
+                <h:outputText value="#{node.nodeStreet}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Коннекторов"/>
+                </f:facet>
+                <h:outputText value="#{node.connectorNum}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Всего точек"/>
+                </f:facet>
+                <h:outputText value="#{node.pointNumber}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header">
+                    <h:outputText value="Свободных точек"/>
+                </f:facet>
+                <h:outputText value="#{node.freePointNumber}"/>
+            </p:column>
+
+            <p:column>
+                <h:form>
+                    <h:commandButton value="Показать связи" action="#{jsfBeanController.showNodeLinks(node.nodeId)}"/>
+                </h:form>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
