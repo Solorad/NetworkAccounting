@@ -1,6 +1,12 @@
 package jpa;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Entity class for point.
@@ -8,7 +14,7 @@ import javax.persistence.*;
  * @author Evgenii Morenkov
  */
 @Entity
-@Table(name="POINT")
+@Table(name = "POINT")
 public class Point {
     @EmbeddedId
     private PointId id;
@@ -19,10 +25,10 @@ public class Point {
 
 
     // Only one of {linkByLeftPoint, linkByRightPoint} can be initialized.
-    @OneToOne(mappedBy="rightPoint", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "rightPoint", fetch = FetchType.LAZY)
     private Link linkByRightPoint;
 
-    @OneToOne(mappedBy="leftPoint", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "leftPoint", fetch = FetchType.LAZY)
     private Link linkByLeftPoint;
 
 
@@ -61,7 +67,6 @@ public class Point {
     public PointId getId() {
         return id;
     }
-
 
 
     @Override

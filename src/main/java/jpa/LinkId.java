@@ -9,7 +9,7 @@ import java.io.Serializable;
  * @author Evgenii Morenkov
  */
 @Embeddable
-public class LinkId implements Serializable{
+public class LinkId implements Serializable {
     private Integer left_point_num;
     private Integer left_point_connector_id;
     private Integer right_point_num;

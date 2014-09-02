@@ -25,9 +25,9 @@ public class LinkDTO {
      * Constructor for link with sort.
      *
      * @param leftPointConnectorId- connector 1 id
-     * @param leftPointNum - connector 1 point number
+     * @param leftPointNum          - connector 1 point number
      * @param rightPointConnectorId - connector 2 id
-     * @param rightPointNum - connector 2 point number
+     * @param rightPointNum         - connector 2 point number
      */
     public LinkDTO(Integer leftPointConnectorId, Integer leftPointNum, Integer rightPointConnectorId,
                    Integer rightPointNum) {

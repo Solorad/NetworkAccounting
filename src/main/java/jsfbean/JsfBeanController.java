@@ -17,10 +17,10 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class JsfBeanController implements Serializable{
-    @ManagedProperty(value="#{dataService}")
+public class JsfBeanController implements Serializable {
+    @ManagedProperty(value = "#{dataService}")
     private DataService dataService;
-    @ManagedProperty(value="#{jsfModel}")
+    @ManagedProperty(value = "#{jsfModel}")
     private JsfModel jsfModel;
 
     private final static Logger logger = LogManager.getLogger(JsfBeanController.class.getName());
@@ -54,9 +54,6 @@ public class JsfBeanController implements Serializable{
         List<NodeDTO> allNodes = dataService.getAllNodes();
         if (logger.isInfoEnabled()) {
             logger.info("we found {} nodes.", allNodes.size());
-            for (NodeDTO dto : allNodes) {
-                logger.info("dto ={}.", dto);
-            }
         }
         return allNodes;
     }

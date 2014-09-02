@@ -1,6 +1,12 @@
 package jpa;
 
-import javax.persistence.*;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  * Entity class for link.
@@ -14,16 +20,16 @@ public class Link {
     private LinkId id;
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-         @JoinColumn(name = "left_point_connector_id", referencedColumnName = "point_connector_id"),
-         @JoinColumn(name = "left_point_num", referencedColumnName = "point_num")
-     })
+                         @JoinColumn(name = "left_point_connector_id", referencedColumnName = "point_connector_id"),
+                         @JoinColumn(name = "left_point_num", referencedColumnName = "point_num")
+                 })
     private Point leftPoint;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumns({
-         @JoinColumn(name = "right_point_connector_id", referencedColumnName = "point_connector_id"),
-         @JoinColumn(name = "right_point_num", referencedColumnName = "point_num")
-     })
+                         @JoinColumn(name = "right_point_connector_id", referencedColumnName = "point_connector_id"),
+                         @JoinColumn(name = "right_point_num", referencedColumnName = "point_num")
+                 })
     private Point rightPoint;
 
     /**

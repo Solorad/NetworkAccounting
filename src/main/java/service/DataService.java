@@ -26,8 +26,8 @@ import java.util.List;
  */
 @ManagedBean
 @ApplicationScoped
-public class DataService implements Serializable{
-    @ManagedProperty(value="#{dataController}")
+public class DataService implements Serializable {
+    @ManagedProperty(value = "#{dataController}")
     private DataController dataController;
     private final static Logger logger = LogManager.getLogger(DataService.class.getName());
 

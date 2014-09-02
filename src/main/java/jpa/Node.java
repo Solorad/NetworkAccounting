@@ -12,7 +12,7 @@ import java.util.List;
  * @author Evgenii Morenkov
  */
 @Entity
-@Table(name="NODE")
+@Table(name = "NODE")
 public class Node {
     @Id
     private Integer node_id;
@@ -20,7 +20,7 @@ public class Node {
     private String node_region;
     private String node_street;
     private String node_address;
-    @OneToMany(mappedBy="node")
+    @OneToMany(mappedBy = "node")
     private List<Connector> connectors;
 
 

@@ -1,6 +1,11 @@
 package jpa;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -9,7 +14,7 @@ import java.util.List;
  * @author Evgenii Morenkov
  */
 @Entity
-@Table(name="CONNECTOR")
+@Table(name = "CONNECTOR")
 public class Connector {
     @Id
     private Integer connector_id;
@@ -21,7 +26,7 @@ public class Connector {
     private List<Point> points;
 
     @ManyToOne
-    @JoinColumn(name = "connector_node_id", referencedColumnName="node_id")
+    @JoinColumn(name = "connector_node_id", referencedColumnName = "node_id")
     private Node node;
 
 
